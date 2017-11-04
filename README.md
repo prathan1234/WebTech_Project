@@ -1,4 +1,7 @@
-﻿# How to start
+# What's new!
+- ลิ้งค์ยูทูปสอนทำเว็บ MEAN Stack -> https://www.youtube.com/playlist?list=PL3vQyqzqjZ637sWpKvniMCxdqZhnMJC1d
+
+# How to start
 - git clone https://github.com/prathan1234/WebTech_Project.git
 
 ตอนนี้สร้าง branch ไว้สำหรับแต่ละคนแล้ว ตอนทำงานอยากให้ทำงานที่ branch ของตัวเอง
