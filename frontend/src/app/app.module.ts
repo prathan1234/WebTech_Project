@@ -10,12 +10,14 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SearchResultComponent } from './components/search-result/search-result.component';
 
 const appRoutes:Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
   {path: 'login', component: LoginComponent, pathMatch: 'full'},
   {path: 'aboutus', component: AboutusComponent, pathMatch: 'full'},
-  {path: 'profile', component: ProfileComponent, pathMatch: 'full'}
+  {path: 'profile', component: ProfileComponent, pathMatch: 'full'},
+  {path: 'searchresult', component: SearchResultComponent, pathMatch: 'full'}
 ]
 
 @NgModule({
@@ -25,7 +27,8 @@ const appRoutes:Routes = [
     HeaderComponent,
     LoginComponent,
     AboutusComponent,
-    ProfileComponent
+    ProfileComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,
