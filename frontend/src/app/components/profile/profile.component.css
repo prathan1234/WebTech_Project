@@ -1,0 +1,28 @@
+.container-profile {
+    width: 90%;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.breadcrumb-profile {
+    background-color: #555555;
+    color: white;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.jumbotron-profile {
+    background-color: #BBBBBB;
+    height: 250px;
+    margin-bottom: 15px;
+}
+
+.nav-tabs {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.tab-content {
+    margin-top: 30px;
+    margin-left: 50px;
+}

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">Eventbook</a>
+  <a class="navbar-brand" routerLink="">Eventbook</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
     aria-expanded="false" aria-label="Toggle navigation" style="">
     <span class="navbar-toggler-icon"></span>
@@ -7,19 +7,17 @@
 
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home
-          <span class="sr-only">(current)</span>
-        </a>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" routerLink="../aboutus">About us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Profile</a>
+        <a class="nav-link" routerLink="../profile">Profile</a>
       </li>
       <li class="nav-item">
-        <a routerLink="../login" (click)='login()' class="nav-link">Login</a>
+        <a class="nav-link" routerLink="../login">Login</a>
       </li>
     </ul>
   </div>

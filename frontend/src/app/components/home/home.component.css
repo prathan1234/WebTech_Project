@@ -15,7 +15,7 @@
 }
 
 .login-form {
-    margin-left: 300px;
+    margin-left: 250px;
     margin-right: 250px;
 }
 
@@ -24,4 +24,14 @@
     width: 35%; 
     display: block; 
     margin-left: 20px;
+}
+
+.breadcrumb {
+    background-color: #555555;
+    color: white;
+    font-size: 18px;
+}
+
+.nav-pills {
+    margin-right: 10px;
 }
