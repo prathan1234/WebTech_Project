@@ -1,0 +1,27 @@
+.container {
+    margin-top: 20px;
+}
+
+.jumbotron {
+    height: 350px;
+    text-align: center;
+}
+
+.card {
+    width: 95%;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.login-form {
+    margin-left: 300px;
+    margin-right: 250px;
+}
+
+.event-img {
+    height: 35%; 
+    width: 35%; 
+    display: block; 
+    margin-left: 20px;
+}
