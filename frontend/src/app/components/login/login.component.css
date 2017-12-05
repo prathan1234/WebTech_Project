@@ -3,7 +3,8 @@
     margin-left: auto;
     margin-right: auto;
     width: 500px;
-    height: 400px;
+    min-height: 400px;
+    max-height: 900px;
 }
 
 .login-form {
@@ -18,4 +19,10 @@
 #warning{
     color: red;
     padding-left: 30px;
+}
+
+a {
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 20px;
 }

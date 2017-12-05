@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginService } from './services/login.service';
+import { UserManagementService } from './services/user-management.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -13,13 +14,15 @@ import { LoginComponent } from './components/login/login.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 const appRoutes:Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
   {path: 'login', component: LoginComponent, pathMatch: 'full'},
   {path: 'aboutus', component: AboutusComponent, pathMatch: 'full'},
   {path: 'profile', component: ProfileComponent, pathMatch: 'full'},
-  {path: 'searchresult', component: SearchResultComponent, pathMatch: 'full'}
+  {path: 'searchresult', component: SearchResultComponent, pathMatch: 'full'},
+  {path: 'signup', component: SignupComponent, pathMatch: 'full'}
 ]
 
 @NgModule({
@@ -30,7 +33,8 @@ const appRoutes:Routes = [
     LoginComponent,
     AboutusComponent,
     ProfileComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,8 @@ const appRoutes:Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    LoginService
+    LoginService,
+    UserManagementService
   ],
   bootstrap: [AppComponent]
 })

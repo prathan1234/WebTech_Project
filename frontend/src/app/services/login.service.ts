@@ -4,7 +4,6 @@ import 'rxjs/add/operator/map'
 
 @Injectable()
 export class LoginService {
-
   private isUserLoggedIn;
   private username;
 
@@ -25,7 +24,6 @@ export class LoginService {
   }
 
   login(username, password) {
-
     let body = {
       "username": username,
       "password": password
