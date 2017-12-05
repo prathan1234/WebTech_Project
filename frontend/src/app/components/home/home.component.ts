@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { LoginService } from '../../services/login.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   private isLogin: Boolean;
 
-  constructor() { }
+  constructor(private loginService:LoginService) { }
 
   ngOnInit() {
   }
