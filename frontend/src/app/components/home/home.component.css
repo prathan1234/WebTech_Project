@@ -1,9 +1,13 @@
+h3 {
+    margin-bottom: 40px;
+}
+
 .container {
     margin-top: 20px;
 }
 
 .jumbotron {
-    height: 350px;
+    height: auto;
     text-align: center;
 }
 
@@ -15,8 +19,21 @@
 }
 
 .login-form {
-    margin-left: 250px;
-    margin-right: 250px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.nav-pills {
+    /* margin-bottom: 20px; */
+}
+
+.search-btn {
+    margin: 20px;
 }
 
 .event-img {
