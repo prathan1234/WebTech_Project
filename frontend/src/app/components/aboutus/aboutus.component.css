@@ -1,0 +1,21 @@
+img {
+    width: 250px;
+    height: 250px;
+}
+
+.breadcrumb-member{
+    background-color: #555555;
+    color: white;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.img-left {
+    display: block;
+    margin-right: auto;
+}
+
+.img-right {
+    display: block;
+    margin-left: auto;
+}

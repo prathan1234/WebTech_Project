@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
   constructor(private userManagementService: UserManagementService, private router: Router) { }
 
   ngOnInit() {
-    this.status = "superadmin";
+    this.status = "user";
   }
 
   signup(username, email, password) {
