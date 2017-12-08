@@ -2,6 +2,7 @@
 - ลิ้งค์ยูทูปสอนทำเว็บ MEAN Stack -> https://www.youtube.com/playlist?list=PL3vQyqzqjZ637sWpKvniMCxdqZhnMJC1d
 - การใช้ Bootstrap ใน Angular -> https://medium.com/codingthesmartway-com-blog/using-bootstrap-with-angular-c83c3cee3f4a
 - Bootstrap theme: Lux -> https://bootswatch.com/lux/
+- วิธีการ deploy โปรเจค Angular ลง Github page -> https://alligator.io/angular/deploying-angular-app-github-pages/
 
 # How to start
 - git clone https://github.com/prathan1234/WebTech_Project.git
