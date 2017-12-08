@@ -9,5 +9,7 @@ module.exports = function () {
     });
 
     require('../app/models/user.model');
+    require('../app/models/event.model');
+    
     return db;
 } 

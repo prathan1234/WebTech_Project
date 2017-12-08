@@ -39,7 +39,6 @@ exports.saveOAuthUserProfile = (req, profile, done) => {
     });
 }
 
-
 exports.getUsers = (req, res, next) => {
     User.find((err, user) => {
         if (err) {
