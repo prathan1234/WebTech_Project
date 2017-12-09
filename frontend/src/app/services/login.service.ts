@@ -29,7 +29,9 @@ export class LoginService {
       "password": password
     }
 
-    return this.http.post("http://61.90.233.80:8082/admin/authen", body)
+    // return this.http.post("http://61.90.233.80:8082/admin/authen", body)
+    //   .map((res) => res.json());
+    return this.http.post("http://localhost:3000/login", body)
       .map((res) => res.json());
   }
 

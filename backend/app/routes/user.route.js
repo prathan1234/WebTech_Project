@@ -3,19 +3,23 @@ import passport from 'passport';
 var user = require('../controllers/user.controller');
 
 module.exports = (app) => {
-    var path = '/api/user';
+    var path = '/user';
 
-    app.get(path + '/getuser', user.getUsers);
-    app.post(path + '/signup', user.create);
+    app.get(path + '/all', user.getAllUsers);
+    app.get('/:username', user.getOneUser);
+    app.post('/signup', user.create);
 
-    app.route('/login')
-        .get(user.login)
-        .post(passport.authenticate('local', {
-            successRedirect: '/home',
-            failureRedirect: '/login',
-            failureFlash: true
-        }));
+    // app.post(path + '/edit/:username', user.editUser);
+    // app.get(path + '/remove/:username', user.removeUser);
+
+    // app.route('/login')
+    //     .get(user.login)
+    //     .post(passport.authenticate('local', {
+    //         successRedirect: '/home',
+    //         failureRedirect: '/login',
+    //         failureFlash: true
+    //     }));
+    app.post('/login', user.login);
 
     app.post('/logout', user.logout);
-
 }
