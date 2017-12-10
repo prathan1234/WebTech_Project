@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   }
 }
 
-interface LoginRespone {
+interface LoginResponse {
   success: string;
   status: string;
 }

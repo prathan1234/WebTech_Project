@@ -27,10 +27,10 @@ export class UserManagementService {
       "status": status
     }
 
-    // return this.http.post("http://61.90.233.80:8082/admin/newadmin", body)
-    //   .map((res) => res.json());
-    return this.http.post("http://localhost:3000/signup", body)
+    return this.http.post("http://61.90.233.80:8082/admin/newadmin", body)
       .map((res) => res.json());
+    // return this.http.post("http://localhost:3000/signup", body)
+    //   .map((res) => res.json());
   }
 
   deleteUser(id) {

@@ -76,14 +76,26 @@ exports.create = (req, res, next) => {
 //     });
 // }
 
-exports.login = (req, res) => {
-    if (!req.user) {
-        res.sendFile((path.join(__dirname + '/../views/login.html')));
-    }
-    else {
-        // res.redirect('/home');
-        return res.json(req.user);
-    }
+// exports.login = (req, res) => {
+//     if (!req.user) {
+//         res.sendFile((path.join(__dirname + '/../views/login.html')));
+//     }
+//     else {
+//         return res.redirect('/home');
+//     }
+// }
+
+exports.login = (req, res, done) => {
+    var user_req = new User(req.body);
+    console.log("HERE!!!!\n" + user_req + "\n");
+    User.findOne({ username: user_req.username }, (err, user) => {
+        if (!user || err || !user.authenticate(user_req.password)) {
+            res.json({ "success": "false" });
+        }
+        else {
+            res.json({ "success": "true" });
+        }
+    });
 }
 
 exports.logout = (req, res) => {

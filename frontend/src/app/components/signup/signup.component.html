@@ -17,5 +17,6 @@
     <label for="password">Comfirm password</label>
     <input type="password" class="form-control" id="password" placeholder="Enter password again...">
   </div>
+  <p id="warning">{{result_text}}</p>
   <button type="submit" class="btn btn-success signup-btn" (click)="signup(username.value, email.value, password.value)">Signup</button>
 </div>

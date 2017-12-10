@@ -12,6 +12,10 @@ module.exports = (app) => {
     // app.post(path + '/edit/:username', user.editUser);
     // app.get(path + '/remove/:username', user.removeUser);
 
+    ///////////////////////////////////////////////////    
+    ////////////////////// Login //////////////////////
+    ///////////////////////////////////////////////////
+
     // app.route('/login')
     //     .get(user.login)
     //     .post(passport.authenticate('local', {
@@ -19,7 +23,16 @@ module.exports = (app) => {
     //         failureRedirect: '/login',
     //         failureFlash: true
     //     }));
+
+    // app.route('/login')
+    //     .get(user.login)
+    //     .post(passport.authenticate('local'));
+
     app.post('/login', user.login);
+
+    // app.post('/login', passport.authenticate('local'));
+
+    // app.post('/login', user.login);
 
     app.post('/logout', user.logout);
 }

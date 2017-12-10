@@ -22,10 +22,20 @@ export class SignupComponent implements OnInit {
 
   signup(username, email, password) {
     this.userManagementService.createNewUser(username, email, password, this.status).subscribe((response) => {
-      console.log(response);
-      this.router.navigate(['/login']);
+      if (response.success == "true") {
+        this.router.navigate(['/login']);
+        console.log("Sign in ...");
+      }
+      else {
+        this.result_text = "Already use this username or email!";
+      }
     })
     return false;
   }
+  
+}
 
+interface SignupRespone {
+  success: string;
+  status: string;
 }
