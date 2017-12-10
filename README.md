@@ -10,20 +10,20 @@
 
 //ตอนรัน ให้เปิด terminal แยกออกมา 3 อัน แบ่งเป็น Node, Mongo, Angular
 
-- Run Server (Node.js)
-    -> cd backend
-    -> npm install (ทำครั้งแรกครั้งเดียวพอ)
-    -> npm start
+# Run Server (Node.js)
+- cd backend
+- npm install (ทำครั้งแรกครั้งเดียวพอ)
+- npm start
 
-- Run MongoDB (ต้องติดตั้ง MongoDB ก่อน)
-    -> mongod --auth
-    -> mongo "eventbook" -u "admin" -p "password" หรือใช้ Robo 3T (แนะนำ เพราะมันง่าย เซ็ต username = admin, password = password)
+# Run MongoDB (ต้องติดตั้ง MongoDB ก่อน)
+- mongod --auth
+- mongo "eventbook" -u "admin" -p "password" หรือใช้ Robo 3T (แนะนำ เพราะมันง่าย เซ็ต username = admin, password = password)
 
-- Run Angular
-    -> cd frontend
-    -> npm install (ทำครั้งแรกครั้งเดียวพอ)
-    -> npm install -g @angular/cli (ทำครั้งแรกครั้งเดียวพอ)
-    -> ng serve
+# Run Angular
+- cd frontend
+- npm install (ทำครั้งแรกครั้งเดียวพอ)
+- npm install -g @angular/cli (ทำครั้งแรกครั้งเดียวพอ)
+- ng serve
 
 ตอนนี้สร้าง branch ไว้สำหรับแต่ละคนแล้ว ตอนทำงานอยากให้ทำงานที่ branch ของตัวเอง
 โดยที่ branch หลักจะเป็น master
