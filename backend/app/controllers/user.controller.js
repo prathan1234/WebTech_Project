@@ -1,44 +1,33 @@
 var User = require('mongoose').model('User');
 var path = require("path");
 
-exports.getOneUser = (req, res, next) => {
-    User.findOne({
-        username: req.params.username
-    }, function (err, user) {
-        if (err) {
-            console.log('Failure' + err);
-            return next(err);
+exports.login = (req, res, done) => {
+    var user_req = new User(req.body);
+    User.findOne({ username: user_req.username }, (err, user) => {
+        if (!user || err || !user.authenticate(user_req.password)) {
+            res.json({ "success": "false" });
         }
         else {
-            console.log('Success');
-            res.json(user);
+            res.json({ "success": "true" });
         }
     });
 }
 
-exports.getAllUsers = (req, res, next) => {
-    User.find((err, user) => {
-        if (err) {
-            console.log('Failure');
-            return next(err);
-        }
-        else {
-            console.log('Success');
-            res.json(user);
-        }
-    });
+exports.logout = (req, res) => {
+    req.logout();
+    res.redirect('/');
 }
 
 exports.create = (req, res, next) => {
     var user = new User(req.body);
     user.save((err) => {
-        if (err) {
+        if (!user || err) {
             console.log('Failure');
-            return next(err);
+            res.json({ "success": "false" });
         }
         else {
-            console.log('Success');
-            res.json(user);
+            console.log('Success\n' + user);
+            res.json({ "success": "true" });
         }
     });
 }
@@ -76,31 +65,32 @@ exports.create = (req, res, next) => {
 //     });
 // }
 
-// exports.login = (req, res) => {
-//     if (!req.user) {
-//         res.sendFile((path.join(__dirname + '/../views/login.html')));
-//     }
-//     else {
-//         return res.redirect('/home');
-//     }
-// }
-
-exports.login = (req, res, done) => {
-    var user_req = new User(req.body);
-    console.log("HERE!!!!\n" + user_req + "\n");
-    User.findOne({ username: user_req.username }, (err, user) => {
-        if (!user || err || !user.authenticate(user_req.password)) {
-            res.json({ "success": "false" });
+exports.getOneUser = (req, res, next) => {
+    User.findOne({
+        username: req.params.username
+    }, function (err, user) {
+        if (err) {
+            console.log('Failure' + err);
+            return next(err);
         }
         else {
-            res.json({ "success": "true" });
+            console.log('Success');
+            res.json(user);
         }
     });
 }
 
-exports.logout = (req, res) => {
-    req.logout();
-    res.redirect('/');
+exports.getAllUsers = (req, res, next) => {
+    User.find((err, user) => {
+        if (err) {
+            console.log('Failure');
+            return next(err);
+        }
+        else {
+            console.log('Success');
+            res.json(user);
+        }
+    });
 }
 
 exports.saveOAuthUserProfile = (req, profile, done) => {

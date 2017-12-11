@@ -9,16 +9,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  private isLogin: Boolean;
+  private username: string;
+  private user;
 
-  constructor(private loginService:LoginService,private router:Router) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
+
+  }
+
+  getUsername() {
+    this.username = this.loginService.getUsername();
+    return this.username;
   }
 
   signout() {
     this.loginService.setUserLoggedOut();
-    this.router.navigate(['/']);  
+    this.router.navigate(['/']);
   }
 
 }

@@ -8,10 +8,8 @@ export class UserManagementService {
   constructor(private http: Http) { }
 
   getAllUser() {
-    return this.http.get("http://61.90.233.80:8082/admin/all")
+    return this.http.get("http://localhost:3000/user/all")
       .map((res) => res.json());
-    // return this.http.get("http://localhost:3000/user/all")
-    //   .map((res) => res.json());
   }
 
   getProfile(username) {
@@ -19,22 +17,23 @@ export class UserManagementService {
       .map((res) => res.json());
   }
 
-  createNewUser(username, email, password, status) {
+  createNewUser(username, firstname, lastname, email, password, status) {
     let body = {
       "username": username,
+      "firstname": firstname,
+      "lastname": lastname,
       "email": email,
       "password": password,
       "status": status
     }
 
-    return this.http.post("http://61.90.233.80:8082/admin/newadmin", body)
+    return this.http.post("http://localhost:3000/signup", body)
       .map((res) => res.json());
-    // return this.http.post("http://localhost:3000/signup", body)
-    //   .map((res) => res.json());
   }
 
   deleteUser(id) {
     return this.http.delete("http://61.90.233.80:8082/admin/removeadmin/" + id);
+    // return this.http.delete("http://localhost:3000/remove/" + username);
   }
 
   editUser(id, username, password, email, status) {

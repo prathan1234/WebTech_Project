@@ -3,19 +3,14 @@ import crypto from 'crypto';
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-    // user_id: {
-    //     type: Number,
-    //     default: 0,
-    //     unique: true
-    // },
-    firstName: String,
-    lastName: String,
     username: {
         type: String,
         unique: true,
         required: 'Username is required',
         trim: true
     },
+    firstname: String,
+    lastname: String,
     email: {
         type: String,
         unique: true

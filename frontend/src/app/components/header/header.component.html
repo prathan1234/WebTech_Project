@@ -14,11 +14,11 @@
         <a class="nav-link" routerLink="../aboutus">About us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Profile</a>
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{getUsername()}} </a>
         <div class="dropdown-menu" style="position: fixed; top: 60px; right: 20px; width: 100px; margin-left: auto">
-          <a class="dropdown-item" routerLink="../profile">My Profile</a>
+          <a class="dropdown-item" routerLink="../profile">Profile</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="" (click)=signout()>Signout</a>
+          <a class="dropdown-item" routerLink="" (click)=signout()>Sign Out</a>
         </div>
       </li>
     </ul>

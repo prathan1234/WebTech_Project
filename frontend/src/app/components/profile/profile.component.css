@@ -36,3 +36,8 @@ h4 {
     grid-gap: 10px;
     grid-auto-rows: minmax(100px, auto);
 }
+
+#warning{
+    color: red;
+    padding-left: 30px;
+}

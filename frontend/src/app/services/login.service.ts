@@ -23,11 +23,17 @@ export class LoginService {
     return this.isUserLoggedIn;
   }
 
+  getUsername() {
+    return this.username;
+  }
+
   login(username, password) {
     let body = {
       "username": username,
       "password": password
     }
+
+    this.username = username;
 
     // return this.http.post("http://61.90.233.80:8082/admin/authen", body)
     //   .map((res) => res.json());

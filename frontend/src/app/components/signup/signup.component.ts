@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   private username: string;
+  private firstname: string;
+  private lastname: string;
   private email: string;
   private password: string;
   private status: string;
@@ -17,17 +19,17 @@ export class SignupComponent implements OnInit {
   constructor(private userManagementService: UserManagementService, private router: Router) { }
 
   ngOnInit() {
-    this.status = "superadmin";
+    this.status = "user";
   }
 
-  signup(username, email, password) {
-    this.userManagementService.createNewUser(username, email, password, this.status).subscribe((response) => {
+  signup(username, firstname, lastname, email, password) {
+    this.userManagementService.createNewUser(username, firstname, lastname, email, password, this.status).subscribe((response) => {
       if (response.success == "true") {
         this.router.navigate(['/login']);
         console.log("Sign in ...");
       }
       else {
-        this.result_text = "Already use this username or email!";
+        this.result_text = "Already has this username or email!\n" + response;
       }
     })
     return false;
