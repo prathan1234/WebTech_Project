@@ -11,6 +11,7 @@ export class SignupComponent implements OnInit {
   private username: string;
   private firstname: string;
   private lastname: string;
+  private phonenumber: string;
   private email: string;
   private password: string;
   private status: string;
@@ -22,19 +23,19 @@ export class SignupComponent implements OnInit {
     this.status = "user";
   }
 
-  signup(username, firstname, lastname, email, password) {
-    this.userManagementService.createNewUser(username, firstname, lastname, email, password, this.status).subscribe((response) => {
+  signup(username, firstname, lastname, phonenumber, email, password) {
+    this.userManagementService.createNewUser(username, firstname, lastname, phonenumber, email, password, this.status).subscribe((response) => {
       if (response.success == "true") {
         this.router.navigate(['/login']);
         console.log("Sign in ...");
       }
       else {
-        this.result_text = "Already has this username or email!\n" + response;
+        this.result_text = "Something Wrong! Please try again.";
       }
-    })
+    });
     return false;
   }
-  
+
 }
 
 interface SignupRespone {

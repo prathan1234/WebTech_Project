@@ -17,11 +17,12 @@ export class UserManagementService {
       .map((res) => res.json());
   }
 
-  createNewUser(username, firstname, lastname, email, password, status) {
+  createNewUser(username, firstname, lastname, phonenumber, email, password, status) {
     let body = {
       "username": username,
       "firstname": firstname,
       "lastname": lastname,
+      "phonenumber": phonenumber,
       "email": email,
       "password": password,
       "status": status
@@ -36,10 +37,11 @@ export class UserManagementService {
     return this.http.delete("http://localhost:3000/user/remove/" + username);
   }
 
-  editUser(username, password, email, firstname, lastname) {
+  editUser(username, firstname, lastname, phonenumber, email, password) {
     let body = {
       "password": password,
       "email": email,
+      "phonenumber": phonenumber,
       "firstname": firstname,
       "lastname": lastname
     }
