@@ -31,22 +31,23 @@ export class UserManagementService {
       .map((res) => res.json());
   }
 
-  deleteUser(id) {
-    return this.http.delete("http://61.90.233.80:8082/admin/removeadmin/" + id);
-    // return this.http.delete("http://localhost:3000/remove/" + username);
+  deleteUser(username) {
+    // return this.http.delete("http://61.90.233.80:8082/admin/removeadmin/" + id);
+    return this.http.delete("http://localhost:3000/user/remove/" + username);
   }
 
-  editUser(id, username, password, email, status) {
+  editUser(username, password, email, firstname, lastname) {
     let body = {
-      "adm_id": id,
-      "username": username,
-      "email": email,
       "password": password,
-      "status": status
+      "email": email,
+      "firstname": firstname,
+      "lastname": lastname
     }
 
-    return this.http.put("http://61.90.233.80:8082/admin/editadmin/" + id, body)
-      .map((res) => res.json());
+    // return this.http.put("http://61.90.233.80:8082/admin/editadmin/" + username, body)
+    //   .map((res) => res.json());
+    return this.http.put("http://localhost:3000/user/edit/" + username, body)
+    .map((res) => res.json());
   }
 
 }

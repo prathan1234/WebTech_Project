@@ -6,6 +6,8 @@ import 'rxjs/add/operator/map'
 export class LoginService {
   private isUserLoggedIn;
   private username;
+  private password;
+  private status;
 
   constructor(private http: Http) {
     this.isUserLoggedIn = false;

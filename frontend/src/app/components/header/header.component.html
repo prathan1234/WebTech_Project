@@ -13,6 +13,10 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="../aboutus">About us</a>
       </li>
+      <!-- {{getUser()}}
+      <li class="nav-item" *ngIf="this.getStatus() == 'admin'">
+        <a class="nav-link" routerLink="">User Management</a>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{getUsername()}} </a>
         <div class="dropdown-menu" style="position: fixed; top: 60px; right: 20px; width: 100px; margin-left: auto">
@@ -37,5 +41,6 @@
         <a class="nav-link" routerLink="../login">Login</a>
       </li>
     </ul>
+
   </div>
 </nav>

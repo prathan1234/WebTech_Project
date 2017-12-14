@@ -16,9 +16,4 @@ module.exports = (app) => {
     // app.post(path + '/edit/:username', user.editUser);
     // app.get(path + '/remove/:username', user.removeUser);
 
-    // app.post('/login', passport.authenticate('local'));
-
-    // app.post('/login', user.login);
-
-
 }
