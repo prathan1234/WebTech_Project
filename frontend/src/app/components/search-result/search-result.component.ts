@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LoginService } from '../../services/login.service';
 import { EventService } from '../../services/event.service';
 
 import { Router } from '@angular/router';
@@ -13,11 +14,16 @@ export class SearchResultComponent implements OnInit {
   private eventList: Event[];
   private result_text: string;
 
-  constructor(private eventService: EventService, private router: Router) { }
+  private username: string;
+
+  constructor(private loginService: LoginService, private eventService: EventService, private router: Router) { }
 
   ngOnInit() {
+    this.username = this.loginService.getUsername();
     this.getAllEvent();
   }
+
+  // Event model
 
   getAllEvent() {
     this.eventService.getAllEvent().subscribe((response) => {
@@ -33,6 +39,24 @@ export class SearchResultComponent implements OnInit {
       this.eventService.setEventId(id);
       this.router.navigate(['/event/' + id]);
     }
+  }
+
+  // Eventuser model
+
+  joinEvent(event_name, username) {
+    this.eventService.joinEvent(event_name, username).subscribe((response) => {
+      if (response != null) {
+        this.router.navigate(['/profile']);
+      }
+    });
+    return false;
+  }
+
+  cancelEvent(event_name, username) {
+    this.eventService.cancelEvent(event_name, username).subscribe((response) => {
+      console.log("delete respone : " + response);
+    });
+    return false;
   }
 }
 

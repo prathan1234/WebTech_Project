@@ -22,12 +22,14 @@
             <p class="txt">{{content}}</p>
             <br/>
             <h5>เวลาเริ่มงาน - สิ้นสุดงาน: {{starttime}} - {{endtime}}</h5>
-
+            
             <div class="btn-group">
-                <button type="button" class="btn btn-success" (click)="joinEvent(eventname, username)">Join</button>
+                <button type="button" class="btn btn-success" *ngIf="username != null" (click)="joinEvent(eventname, username)">Join</button>
                 <button type="button" class="btn btn-info">Edit</button>
+                <button type="button" class="btn btn-warning" *ngIf="" (click)="cancelEvent(eventname, username)">Cancle</button>                
                 <button type="button" class="btn btn-danger" (click)="deleteEvent(eventid)">End Event</button>
             </div>
+            <p *ngIf="username == null">If you are interesting this event, Please login for join this!</p>
         </div>
         <p class="warning">{{result_text}}</p>
     </div>

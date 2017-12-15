@@ -27,6 +27,19 @@ exports.getOne = (req, res, next) => {
     });
 }
 
+exports.getEvent = (req, res, next) => {
+    Event.find({ event_name: req.params.event_name }, '', function (err, event) {
+        if (err) {
+            console.log('Failure: ' + err);
+            return next(err);
+        }
+        else {
+            console.log(event);
+            res.json(event);
+        }
+    });
+}
+
 exports.getUserEvent = (req, res, next) => {
     Event.find({ author: req.params.username }, '', function (err, event) {
         if (err) {

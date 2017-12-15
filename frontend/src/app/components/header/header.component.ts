@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
   signout() {
     this.loginService.setUserLoggedOut();
     this.router.navigate(['/']);
+    location.reload();
   }
 
 }

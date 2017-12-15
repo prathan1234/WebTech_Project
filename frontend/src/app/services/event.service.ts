@@ -33,6 +33,11 @@ export class EventService {
     .map((res) => res.json());
   }
 
+  getEvent(event_name) {
+    return this.http.get("http://localhost:3000/event/get/" + event_name)
+    .map((res) => res.json());
+  }
+
   getUserEvent(author) {
     return this.http.get("http://localhost:3000/event/findbyuser/" + author)
     .map((res) => res.json());

@@ -90,13 +90,9 @@ export class EventComponent implements OnInit {
   }
 
   cancelEvent(eventuser) {
-    this.eventuserList.forEach((element, index) => {
-      if (element == eventuser) {
-        this.eventService.cancelEvent(eventuser.event_name, eventuser.username).subscribe((response) => {
-          console.log("delete respone : " + response);
-        });
-        this.eventuserList.splice(index, 1);
-      }
+    this.eventService.cancelEvent(eventuser.event_name, eventuser.username).subscribe((response) => {
+      console.log("delete respone : " + response);
+      this.router.navigate(['/']);
     });
     return false;
   }

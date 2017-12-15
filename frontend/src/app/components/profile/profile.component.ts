@@ -33,6 +33,8 @@ export class ProfileComponent implements OnInit {
   private endtime: Date;
 
   private eventList: Event[];
+  private eventuserList: EventUser[];
+  private eventjoinedList: Event[] = [];
 
   private result_text: string;
   private result_text_event: string;
@@ -42,12 +44,14 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.getProfile();
     this.getUserEvent();
+    this.getEventByUser();
   }
+
+  // User model
 
   getProfile() {
     this.userManagementService.getProfile(this.loginService.getUsername()).subscribe((response) => {
       if (response != null) {
-        console.log(response);
         this.id = response._id;
         this.username = response.username;
         this.firstname = response.firstname;
@@ -114,6 +118,8 @@ export class ProfileComponent implements OnInit {
     console.log(this.endtime);
   }
 
+  // Event model
+
   addEvent(eventname, location, content) {
     this.author = this.username;
     this.eventService.addEvent(eventname, this.author, location, this.catagory, content, this.starttime, this.endtime).subscribe((response) => {
@@ -140,6 +146,20 @@ export class ProfileComponent implements OnInit {
     return false;
   }
 
+  // Eventuser model
+
+  getEventByUser() {
+    this.eventService.getEventByUser(this.loginService.getUsername()).subscribe((response) => {
+      this.eventuserList = response;
+      for (var i = 0; i < this.eventuserList.length; i++) {
+        console.log(this.eventuserList[i].event_name);
+        this.eventService.getEvent(this.eventuserList[i].event_name).subscribe((res) => {
+          this.eventjoinedList.push(res[0]);
+        });
+      }
+    });
+    return false;
+  }
 }
 
 interface Event {
@@ -150,6 +170,11 @@ interface Event {
   content: string;
   start_time: Date;
   end_time: Date;
+}
+
+interface EventUser {
+  event_name: string;
+  username: string
 }
 
 interface GetUserEventRespone {
@@ -165,4 +190,14 @@ interface GetUserEventRespone {
 interface AddEventRespone {
   success: string;
   status: string;
+}
+
+interface GetEventByUser {
+  event_name: string;
+  author: string;
+  location: string;
+  catagory: string;
+  content: string;
+  start_time: Date;
+  end_time: Date;
 }
