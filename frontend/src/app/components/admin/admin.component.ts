@@ -45,6 +45,19 @@ export class AdminComponent implements OnInit {
       this.eventList = response;
     })
   }
+
+  deleteEvent(event) {
+    this.eventList.forEach((element, index) => {
+      if (element == event) {
+        console.log(event);
+        this.eventService.deleteEvent(event._id).subscribe((response) => {
+          console.log("delete respone : " + response);
+        });
+        this.eventList.splice(index, 1);
+      }
+    });
+    return false;
+  }
 }
 
 interface User {

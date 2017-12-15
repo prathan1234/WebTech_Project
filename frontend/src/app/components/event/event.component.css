@@ -1,0 +1,22 @@
+.container-profile {
+    width: 90%;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.breadcrumb-profile {
+    background-color: #555555;
+    color: white;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.btn-group {
+    margin-top: 50px;
+}
+
+.txt-id {
+    text-align: right; 
+    font-size: 8px; 
+    margin-right: 10px;
+}

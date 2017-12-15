@@ -45,7 +45,7 @@ export class EventComponent implements OnInit {
 
 }
 
-interface GetOneEventRespone {
+interface EventRespone {
   event_name: string;
   author: string;
   location: string;

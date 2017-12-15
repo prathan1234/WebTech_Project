@@ -1,1 +1,34 @@
-{{eventname}}
+<div class="container-profile">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a routerLink="../../">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a routerLink="#">Event</a>
+        </li>
+        <li class="breadcrumb-item active">{{eventname}}</li>
+    </ol>
+    <div class="card">
+        <h3 class="card-header">ชื่องาน: {{eventname}}</h3>
+        <p class="text-muted txt-id">Event ID: {{eventid}}</p>
+        <div class="card-body">
+            <h5>ประเภทของงาน: {{catagory}}</h5>
+            <br/>
+            <h5>ผู้จัดงาน: {{author}}</h5>
+            <br/>
+            <h5>สถานที่จัดงาน: {{location}}</h5>
+            <br/>
+            <h5>รายละเอียด: </h5>
+            <p class="txt">{{content}}</p>
+            <br/>
+            <h5>เวลาเริ่มงาน - สิ้นสุดงาน: {{starttime}} - {{endtime}}</h5>
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-success">Join</button>
+                <button type="button" class="btn btn-info">Edit</button>
+                <button type="button" class="btn btn-danger">End Event</button>
+            </div>
+        </div>
+        <p class="warning">{{result_text}}</p>
+    </div>
+</div>

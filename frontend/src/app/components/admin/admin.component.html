@@ -38,11 +38,16 @@
         <div class="card-body">
           <ul>
             <li class="list" style="list-style-type: none" *ngFor="let event of eventList; let i = index">
-              {{i+1}}. Event name: {{event.event_name}}
+              {{i+1}}. Event ID: {{event._id}}
+              <br/> Event name: {{event.event_name}}
               <br/> Author: {{event.author}}
+              <br/> Location: {{event.location}}
               <br/> Catagory: {{event.catagory}}
+              <br/> Content: {{event.content}}
+              <br/> Start time: {{event.start_time}}
+              <br/> End time: {{event.end_time}}
               <br/>
-              <button class="btn-danger btn-remove-user">Remove</button>
+              <button class="btn-danger btn-remove-user" (click)="deleteEvent(event)">Remove</button>
             </li>
           </ul>
         </div>
