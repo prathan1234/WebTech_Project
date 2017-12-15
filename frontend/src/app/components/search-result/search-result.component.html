@@ -1,1 +1,22 @@
 <h4>ผลการค้นหา: </h4>
+<div class="card event-card" *ngFor="let event of eventList; let i = index">
+    <div class="card-body">
+        <h4 class="card-title">{{event.event_name}}</h4>
+        <br/>
+        <h6 class="card-subtitle mb-2">Catagory: {{event.catagory}}</h6>
+        <br/>
+        <h6 class="card-subtitle mb-2">Author: {{event.author}}</h6>
+        <br/>
+        <h6 class="card-subtitle mb-2">Location: {{event.location}}</h6>
+        <br/>
+        <div class="btn-group">
+            <button type="button" class="btn btn-success">Join</button>
+            <button type="button" class="btn btn-primary" (click)="getOneEvent(event._id)">More info</button>
+        </div>
+    </div>
+</div>
+<div class="card" *ngIf="eventList.length == 0">
+    <div class="card-body">
+        <p>{{result_text}}</p>
+    </div>
+</div>
