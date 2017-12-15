@@ -16,4 +16,14 @@ module.exports = (app) => {
     // app.post(path + '/edit/:username', user.editUser);
     app.get(path + '/remove/:username', user.removeUser);
 
+    app.get('/oauth/google', passport.authenticate('google', {
+        scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'],
+        failureRedirect: '/login'
+    }));
+
+    app.get('/oauth/google/callback', passport.authenticate('google', {
+        failureRedirect: '/login',
+        successRedirect: '/home'
+    }));
+
 }

@@ -30,6 +30,20 @@ export class LoginComponent implements OnInit {
     })
     return false;
   }
+
+  oauthLogin() {
+    this.loginService.oauthLogin().subscribe((response) => {
+      if (response.success != "false") {
+        this.loginService.setUserLoggedIn();
+        this.loginService.setUserStatus(response.status);
+        this.router.navigate(['/']);
+        console.log("Logging in ...");
+      } else {
+        this.result_text = "Incorrect username or password!";
+      }
+    })
+    return false;
+  }
 }
 
 interface LoginResponse {

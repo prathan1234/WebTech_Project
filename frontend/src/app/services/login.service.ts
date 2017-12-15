@@ -49,4 +49,9 @@ export class LoginService {
       .map((res) => res.json());
   }
 
+  oauthLogin() {
+    return this.http.get("http://localhost:3000/oauth/google")
+    .map((res) => res.json());
+  }
+
 }
