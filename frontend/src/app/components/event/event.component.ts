@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LoginService } from '../../services/login.service';
 import { EventService } from '../../services/event.service';
+
+import { Router } from '@angular/router';
+import { Response } from '@angular/http/src/static_response';
 
 @Component({
   selector: 'app-event',
@@ -18,12 +22,20 @@ export class EventComponent implements OnInit {
   private endtime: Date;
   private result_text: string;
 
-  constructor(private eventService: EventService) { }
+  private username: string;
+
+  private eventuserList: EventUser[];
+
+  constructor(private loginService: LoginService, private eventService: EventService, private router: Router) { }
 
   ngOnInit() {
+    this.username = this.loginService.getUsername();
     this.eventid = this.eventService.getEventId();
     this.getOneEvent(this.eventid);
+    this.getUserByEvent(this.eventname);
   }
+
+  // Event model
 
   getOneEvent(id) {
     this.eventService.getOneEvent(id).subscribe((response) => {
@@ -43,6 +55,51 @@ export class EventComponent implements OnInit {
     return false;
   }
 
+  deleteEvent(id) {
+    this.eventService.deleteEvent(id).subscribe((response) => {
+      this.router.navigate(['/']);
+      alert("Remove event success !!!");
+    });
+    return false;
+  }
+
+  // Eventuser model
+
+  getUserByEvent(event_name) {
+    this.eventService.getUserByEvent(event_name).subscribe((response) => {
+      this.eventuserList = response;
+      console.log("HERE!!!" + response);
+    });
+    return false;
+  }
+
+  getEventByUser(username) {
+    this.eventService.getEventByUser(username).subscribe((response) => {
+      this.eventuserList = response;
+    });
+    return false;
+  }
+
+  joinEvent(event_name, username) {
+    this.eventService.joinEvent(event_name, username).subscribe((response) => {
+      if (response != null) {
+        this.router.navigate(['/profile']);
+      }
+    });
+    return false;
+  }
+
+  cancelEvent(eventuser) {
+    this.eventuserList.forEach((element, index) => {
+      if (element == eventuser) {
+        this.eventService.cancelEvent(eventuser.event_name, eventuser.username).subscribe((response) => {
+          console.log("delete respone : " + response);
+        });
+        this.eventuserList.splice(index, 1);
+      }
+    });
+    return false;
+  }
 }
 
 interface EventRespone {
@@ -53,4 +110,9 @@ interface EventRespone {
   content: string;
   start_time: Date;
   end_time: Date;
+}
+
+interface EventUser {
+  event_name: string;
+  username: string
 }

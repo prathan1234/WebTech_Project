@@ -24,11 +24,19 @@
             <h5>เวลาเริ่มงาน - สิ้นสุดงาน: {{starttime}} - {{endtime}}</h5>
 
             <div class="btn-group">
-                <button type="button" class="btn btn-success">Join</button>
+                <button type="button" class="btn btn-success" (click)="joinEvent(eventname, username)">Join</button>
                 <button type="button" class="btn btn-info">Edit</button>
-                <button type="button" class="btn btn-danger">End Event</button>
+                <button type="button" class="btn btn-danger" (click)="deleteEvent(eventid)">End Event</button>
             </div>
         </div>
         <p class="warning">{{result_text}}</p>
+    </div>
+    <div class="card">
+        <h4>รายชื่อผู้เข้าร่วมงาน</h4>
+        <ul>
+            <li style="list-style-type: none" *ngFor="let eventuser of eventuserList; let i = index">
+                {{i+1}}. {{eventuser.username}}
+            </li>
+        </ul>
     </div>
 </div>

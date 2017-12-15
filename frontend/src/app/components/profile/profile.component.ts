@@ -55,7 +55,7 @@ export class ProfileComponent implements OnInit {
         this.phonenumber = response.phonenumber;
         this.email = response.email;
         this.status = response.status;
-      } 
+      }
       else {
         this.result_text = "Not found this user!";
       }
@@ -116,12 +116,10 @@ export class ProfileComponent implements OnInit {
 
   addEvent(eventname, location, content) {
     this.author = this.username;
-
-    console.log(this.catagory);
     this.eventService.addEvent(eventname, this.author, location, this.catagory, content, this.starttime, this.endtime).subscribe((response) => {
       if (response.success == "true") {
         this.router.navigate(['/']);
-        alert("Add event success ...");
+        alert("Add event success !!!");
       }
       else {
         this.result_text = "Something Wrong! Please try again.";
@@ -133,7 +131,6 @@ export class ProfileComponent implements OnInit {
   deleteEvent(event) {
     this.eventList.forEach((element, index) => {
       if (element == event) {
-        console.log(event);
         this.eventService.deleteEvent(event._id).subscribe((response) => {
           console.log("delete respone : " + response);
         });

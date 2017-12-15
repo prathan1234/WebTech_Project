@@ -27,6 +27,19 @@ exports.getUserByEvent = (req, res, next) => {
     });
 }
 
+exports.getEventByUser = (req, res, next) => {
+    EventUser.find({ username: req.params.username }, '', function (err, eventuser) {
+        if (err) {
+            console.log('Failure: ' + err);
+            return next(err);
+        }
+        else {
+            console.log(eventuser);
+            res.json(eventuser);
+        }
+    });
+}
+
 exports.joinEvent = (req, res, next) => {
     var eventuser = new EventUser(req.body);
     eventuser.save((err) => {
