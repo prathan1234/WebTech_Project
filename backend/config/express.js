@@ -56,7 +56,8 @@ module.exports = function () {
 
     require('../app/routes/index.route')(app);
     require('../app/routes/user.route')(app);
-    require('../app/routes/event.route')(app);    
+    require('../app/routes/event.route')(app); 
+    require('../app/routes/eventuser.route')(app);     
 
     return app;
 }

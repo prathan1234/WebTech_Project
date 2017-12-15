@@ -10,6 +10,7 @@ module.exports = function () {
 
     require('../app/models/user.model');
     require('../app/models/event.model');
+    require('../app/models/eventuser.model');    
     
     return db;
 } 
