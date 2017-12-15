@@ -61,7 +61,7 @@ export class ProfileComponent implements OnInit {
     this.eventService.getUserEvent(this.loginService.getUsername()).subscribe((response) => {
       console.log(response);
       this.eventList = response;
-      if (response != null || this.eventList.length != 0) {
+      if (response != null && this.eventList.length > 0) {
         for (let i = 0; i < this.eventList.length; i++) {
           if (this.eventList[i].catagory == null) {
             this.eventList[i].catagory = "None";

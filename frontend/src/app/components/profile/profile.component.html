@@ -151,7 +151,7 @@
           <button type="button" class="btn btn-primary">More info</button>
         </div>
       </div>
-      <div class="card">
+      <div class="card" *ngIf="eventList.length == 0">
         <div class="card-body">
           <p>{{result_text_event}}</p>
         </div>
