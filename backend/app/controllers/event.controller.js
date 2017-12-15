@@ -28,10 +28,7 @@ exports.getOne = (req, res, next) => {
 }
 
 exports.getUserEvent = (req, res, next) => {
-    console.log(req);
-    Event.find({ 
-        author: req.params.author 
-    }, function (err, event) {
+    Event.find({ author: req.params.username }, '', function (err, event) {
         if (err) {
             console.log('Failure: ' + err);
             return next(err);
@@ -53,6 +50,20 @@ exports.create = (req, res, next) => {
         else {
             console.log('Success\n' + event);
             res.json({ "success": "true" });
+        }
+    });
+}
+
+exports.removeEvent = (req, res, next) => {
+    Event.remove({ 
+        _id: req.params.id 
+    } ,function (err, event) {
+        if (err) {
+            console.log('Failure');
+            return next(err);
+        }
+        else {
+            console.log('Remove success');
         }
     });
 }

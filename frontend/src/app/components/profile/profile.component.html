@@ -19,6 +19,8 @@
     <div class="tab-pane fade in active show" id="profile">
       <div class="card">
         <div class="card-body">
+          <h4>Your Profile: </h4>
+          <br/>
           <p>User ID: {{id}}</p>
           <p>Username: {{username}}</p>
           <p>First name: {{firstname}}</p>
@@ -29,7 +31,7 @@
           <br/>
           <h4>Edit User: </h4>
           <br/>
-          <div id="add-event-form">
+          <div id="edit-user-form">
             <div class="form-group">
               <label for="password">Password</label>
               <input type="password" class="form-control" id="password" placeholder="Enter password..." #editpassword>
@@ -52,7 +54,8 @@
 
             <div class="form-group">
               <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" value={{email}} placeholder="Enter email..." #editemail>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" value={{email}} placeholder="Enter email..."
+                #editemail>
             </div>
 
             <p id="warning">{{result_text}}</p>
@@ -75,9 +78,85 @@
     <div class="tab-pane fade" id="myevent">
       <div class="card">
         <div class="card-body">
-            <button type="submit" class="btn btn-info btn-add-event">Add Event</button>
+          <div id="add-event-form">
+            <div class="form-group">
+              <label for="eventname">Event name</label>
+              <input type="text" class="form-control" id="eventname" placeholder="Enter Event name..." #eventname>
+            </div>
+
+            <div class="form-group">
+              <label for="location">Location</label>
+              <input type="text" class="form-control" id="location" placeholder="Enter location..." #location>
+            </div>
+
+            <div class="form-group">
+              <label for="catagory">Catagory</label>
+              <select class="form-control" (change)="getCatagory($event.target.value)">
+                <option value="None" selected>None</option>
+                <option value="Acting - งานการแสดง">Acting - งานการแสดง</option>
+                <option value="Signing ceremony - งานแจกลายเซ็น">Signing ceremony - งานแจกลายเซ็น</option>
+                <option value="Road show - งานแสดงข้างถนน">Road show - งานแสดงข้างถนน</option>
+                <option value="Exhibition - งานนิทรรศการ">Exhibition - งานนิทรรศการ</option>
+                <option value="Product Launch - งานเปิดตัวสินค้า">Product Launch - งานเปิดตัวสินค้า</option>
+                <option value="Opening - งานเปิดร้าน">Opening - งานเปิดร้าน</option>
+                <option value="Party - งานจัดเลี้ยง">Party - งานจัดเลี้ยง</option>
+                <option value="Meeting - งานพบปะ">Meeting - งานพบปะ</option>
+                <option value="Charity event - งานการกุศล">Charity event - งานการกุศล</option>
+                <option value="Fashion show - งานแสดงแฟชั่น">Fashion show - งานแสดงแฟชั่น</option>
+                <option value="Expo event - งานแสดงสินค้า">Expo event - งานแสดงสินค้า</option>
+                <option value="Seminar - งานสัมมนา">Seminar - งานสัมมนา</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="content">Content</label>
+              <input type="text" class="form-control" id="content" placeholder="Enter content..." #content>
+            </div>
+
+            <div class="form-group">
+              <label for="starttime">Start date</label>
+              <br/>
+              <input type="datetime-local" id="start_date" (change)="getStartDate($event.target.value)">
+            </div>
+
+            <div class="form-group">
+              <label for="endtime">End date</label>
+              <br/>
+              <input type="datetime-local" id="end_date" (change)="getEndDate($event.target.value)">
+            </div>
+
+            <p id="warning">{{result_text}}</p>
+            <button type="submit" class="btn btn-info btn-add-event" (click)="addEvent(eventname.value, location.value, content.value)">Add Event</button>
+          </div>
         </div>
       </div>
+      <br/>
+      <h4>Event ที่คุณสร้าง: </h4>
+      <br/>
+      <div class="card event-card" *ngFor="let event of eventList; let i = index">
+        <div class="card-body">
+          <h4 class="card-title">{{event.event_name}}</h4>
+          <br/>
+          <h6 class="card-subtitle mb-2">Catagory: {{event.catagory}}</h6>
+          <br/>
+          <h6 class="card-subtitle mb-2">Author: {{event.author}}</h6>
+          <br/>
+          <h6 class="card-subtitle mb-2">Location: {{event.location}}</h6>
+          <br/>
+          <h6 class="card-subtitle mb-2">Start date: {{event.start_time}}</h6>
+          <br/>
+          <h6 class="card-subtitle mb-2">End date: {{event.end_time}}</h6>
+          <br/>
+          <button type="button" class="btn btn-success">Join</button>
+          <button type="button" class="btn btn-primary">More info</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <p>{{result_text_event}}</p>
+        </div>
+      </div>
+
     </div>
 
   </div>

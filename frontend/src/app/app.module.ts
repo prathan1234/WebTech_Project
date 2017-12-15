@@ -8,6 +8,7 @@ import { AuthguardGuard } from './authguard.guard';
 
 import { LoginService } from './services/login.service';
 import { UserManagementService } from './services/user-management.service';
+import { EventService } from './services/event.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -24,7 +25,7 @@ const appRoutes:Routes = [
   {path: 'login', component: LoginComponent, pathMatch: 'full'},
   {path: 'aboutus', component: AboutusComponent, pathMatch: 'full'},
   {path: 'profile', canActivate: [AuthguardGuard], component: ProfileComponent, pathMatch: 'full'},
-  {path: 'searchresult', component: SearchResultComponent, pathMatch: 'full'},
+  {path: 'search', component: SearchResultComponent, pathMatch: 'full'},
   {path: 'signup', component: SignupComponent, pathMatch: 'full'},
   {path: 'event', component: EventComponent, pathMatch: 'full'}
 ]
@@ -50,6 +51,7 @@ const appRoutes:Routes = [
   providers: [
     LoginService,
     UserManagementService,
+    EventService,
     AuthguardGuard  
   ],
   bootstrap: [AppComponent]

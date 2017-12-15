@@ -10,10 +10,14 @@ import { LoginService } from '../../services/login.service';
 })
 export class HomeComponent implements OnInit {
   private isLogin: Boolean;
+  private isShow: Boolean = false;
 
   constructor(private loginService:LoginService) { }
 
   ngOnInit() {
   }
 
+  showSearch() {
+    this.isShow = true;
+  }
 }

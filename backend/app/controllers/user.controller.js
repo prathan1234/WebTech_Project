@@ -51,19 +51,19 @@ exports.create = (req, res, next) => {
 //     });
 // }
 
-// exports.deleteUser = (req, res, next) => {
-//     User.remove({ 
-//         username: req.params.username 
-//     } ,function (err, user) {
-//         if (err) {
-//             console.log('Failure');
-//             return next(err);
-//         }
-//         else {
-//             console.log('Remove success');
-//         }
-//     });
-// }
+exports.removeUser = (req, res, next) => {
+    User.remove({ 
+        username: req.params.username 
+    } ,function (err, user) {
+        if (err) {
+            console.log('Failure');
+            return next(err);
+        }
+        else {
+            console.log('Remove success');
+        }
+    });
+}
 
 exports.getOneUser = (req, res, next) => {
     User.findOne({

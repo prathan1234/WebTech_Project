@@ -14,6 +14,6 @@ module.exports = (app) => {
     app.get('/:username', user.getOneUser);
 
     // app.post(path + '/edit/:username', user.editUser);
-    // app.get(path + '/remove/:username', user.removeUser);
+    app.get(path + '/remove/:username', user.removeUser);
 
 }
