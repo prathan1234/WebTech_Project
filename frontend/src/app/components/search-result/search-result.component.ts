@@ -20,7 +20,19 @@ export class SearchResultComponent implements OnInit {
 
   ngOnInit() {
     this.username = this.loginService.getUsername();
-    this.getAllEvent();
+    // this.getAllEvent();
+    this.search();
+  }
+
+  // Search model
+
+  search() {
+    this.eventService.searchEvent(this.eventService.getKeyword()).subscribe((response) => {
+      this.eventList = response;
+      if (response == null && this.eventList.length == 0) {
+        this.result_text = "Not found event!";
+      }
+    });
   }
 
   // Event model

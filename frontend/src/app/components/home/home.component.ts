@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { LoginService } from '../../services/login.service';
+import { EventService } from '../../services/event.service';
 
 @Component({
   selector: 'app-home',
@@ -12,12 +13,22 @@ export class HomeComponent implements OnInit {
   private isLogin: Boolean;
   private isShow: Boolean = false;
 
-  constructor(private loginService:LoginService) { }
+  private keyword: string;
+  private catagory: string;
+
+  constructor(private loginService:LoginService, private eventService: EventService) { }
 
   ngOnInit() {
   }
 
-  showSearch() {
+  showSearch(keyword) {
     this.isShow = true;
+    this.keyword = keyword;
+    this.eventService.setKeyword(this.keyword);
+    this.eventService.setCatagory(this.catagory);
+  }
+
+  getCatagory(catagory) {
+    this.catagory = catagory;
   }
 }

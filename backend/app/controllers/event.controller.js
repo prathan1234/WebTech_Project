@@ -53,6 +53,23 @@ exports.getUserEvent = (req, res, next) => {
     });
 }
 
+exports.search = (req, res, next) => {
+    // console.log(req.params.keyword);
+    Event.find({$text: {$search: req.params.keyword}})
+    .skip(20)
+    .limit(10)
+    .exec(function(err, docs) {
+        if (err) {
+            console.log('Failure' + err);
+            return next(err);
+        }
+        else {
+            console.log('Search success\n' + docs);
+            res.json(docs);
+        }
+     });
+}
+
 exports.create = (req, res, next) => {
     var event = new Event(req.body);
     event.save(function (err) {

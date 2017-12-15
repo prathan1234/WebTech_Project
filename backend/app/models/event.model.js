@@ -33,4 +33,6 @@ var EventSchema = new Schema({
     }
 });
 
+EventSchema.index({ event_name: "text", catagory: "text" });
+
 mongoose.model('Event', EventSchema);

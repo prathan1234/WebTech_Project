@@ -11,7 +11,42 @@ export class EventService {
   private event_name;
   private username;
 
+  // Search variable
+  private keyword;
+  private catagory;
+
   constructor(private http: Http) { }
+
+  // Search model
+
+  searchEvent(keyword) {
+    // let body = {
+    //   "keyword": keyword,
+    //   "catagory": catagory
+    // }
+
+    // return this.http.post("http://localhost:3000/event/search", body)
+    // .map((res) => res.json());
+    
+    return this.http.get("http://localhost:3000/event/search/" + keyword)
+    .map((res) => res.json());
+  }
+
+  getKeyword() {
+    return this.keyword;
+  }
+
+  setKeyword(kw) {
+    this.keyword = kw;
+  }
+
+  getCatagory() {
+    return this.catagory;
+  }
+
+  setCatagory(catagory) {
+    this.catagory = catagory;
+  }
 
   // Event model
 
@@ -41,10 +76,6 @@ export class EventService {
   getUserEvent(author) {
     return this.http.get("http://localhost:3000/event/findbyuser/" + author)
     .map((res) => res.json());
-  }
-
-  searchEvent() {
-
   }
 
   addEvent(eventname, author, location, catagory, content, starttime, endtime) {
