@@ -4,7 +4,7 @@
 - Bootstrap theme: Lux -> https://bootswatch.com/lux/
 - วิธีการ deploy โปรเจค Angular ลง Github page -> https://alligator.io/angular/deploying-angular-app-github-pages/
 - วิธการ deploy โปรเจค Node.js ลง Heroku(Web hosting) -> https://docs.google.com/document/d/1HWismdR8bhdcFDmy4sGaEAHul3zjVHrMgqOqgyt1sBA/edit
-- mLab (Mongo Cloud Server) -> username: wj-wann, pass: cw250859
+- mLab (Mongo Cloud Server) -> https://mlab.com/login/ (username: wj-wann, pass: cw250859)
 
 # How to start
 - git clone https://github.com/prathan1234/WebTech_Project.git
