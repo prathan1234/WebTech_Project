@@ -8,7 +8,7 @@ exports.login = (req, res, done) => {
             res.json({ "success": "false" });
         }
         else {
-            res.json({ "success": "true" });
+            res.json({ "success": "true" , "status": user.status});
         }
     });
 }

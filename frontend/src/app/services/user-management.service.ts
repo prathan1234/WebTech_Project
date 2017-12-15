@@ -33,8 +33,7 @@ export class UserManagementService {
   }
 
   deleteUser(username) {
-    // return this.http.delete("http://61.90.233.80:8082/admin/removeadmin/" + id);
-    return this.http.delete("http://localhost:3000/user/remove/" + username);
+    return this.http.get("http://localhost:3000/user/remove/" + username);
   }
 
   editUser(username, firstname, lastname, phonenumber, email, password) {

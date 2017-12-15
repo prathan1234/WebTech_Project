@@ -19,8 +19,9 @@ export class LoginComponent implements OnInit {
 
   login(username, password) {
     this.loginService.login(username, password).subscribe((response) => {
-      if (response.success == "true") {
+      if (response.success != "false") {
         this.loginService.setUserLoggedIn();
+        this.loginService.setUserStatus(response.status);
         this.router.navigate(['/']);
         console.log("Logging in ...");
       } else {

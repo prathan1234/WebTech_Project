@@ -12,12 +12,12 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   private username: string;
   private status: string;
-  private user;
+  private user: User;
 
   constructor(private loginService: LoginService, private userManagementService: UserManagementService, private router: Router) { }
 
   ngOnInit() {
-    
+
   }
 
   getUsername() {
@@ -25,22 +25,19 @@ export class HeaderComponent implements OnInit {
     return this.username;
   }
 
-  // getStatus() {
-  //   return this.status;
-  // }
-
-  // getUser() {
-  //   this.userManagementService.getProfile(this.loginService.getUsername()).subscribe((response) => {
-  //     if (response != null) {
-  //       this.status = response.status;
-  //     }
-  //   });
-  //   return false;
-  // }
-
   signout() {
     this.loginService.setUserLoggedOut();
     this.router.navigate(['/']);
   }
 
+}
+
+interface User {
+  "username": string,
+  "password": string,
+  "firstname": string,
+  "lastname": string,
+  "phonenumber": string,
+  "email": string,
+  "status": string
 }

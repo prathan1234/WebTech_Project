@@ -148,6 +148,7 @@
           <h6 class="card-subtitle mb-2">End date: {{event.end_time}}</h6>
           <br/>
           <button type="button" class="btn btn-primary" (click)="getOneEvent(event._id)">More info</button>
+          <button type="button" class="btn btn-danger" (click)="deleteEvent(event)">End Event</button>          
         </div>
       </div>
       <div class="card" *ngIf="eventList.length == 0">

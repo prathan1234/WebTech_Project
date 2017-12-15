@@ -1,0 +1,53 @@
+<div class="container-profile">
+  <ol class="breadcrumb breadcrumb-admin">
+    <li class="breadcrumb-item">Admin page</li>
+  </ol>
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#user">All user</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#event">All Event</a>
+    </li>
+  </ul>
+
+  <div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade in active show" id="user">
+      <div class="card">
+        <div class="card-body">
+          <ul>
+            <li class="list" style="list-style-type: none" *ngFor="let user of userList; let i = index">
+              {{i+1}}. User ID: {{user._id}}
+              <br/> Username: {{user.username}}
+              <br/> Status: {{user.status}}
+              <br/> First name: {{user.firstname}}
+              <br/> Last name: {{user.lastname}}
+              <br/> Phone: {{user.phonenumber}}
+              <br/> E-mail: {{user.email}}
+              <br/>
+              <button class="btn-danger btn-remove-user" (click)="deleteUser(user)">Remove</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="event">
+      <div class="card">
+        <div class="card-body">
+          <ul>
+            <li class="list" style="list-style-type: none" *ngFor="let event of eventList; let i = index">
+              {{i+1}}. Event name: {{event.event_name}}
+              <br/> Author: {{event.author}}
+              <br/> Catagory: {{event.catagory}}
+              <br/>
+              <button class="btn-danger btn-remove-user">Remove</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

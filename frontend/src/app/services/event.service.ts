@@ -54,7 +54,7 @@ export class EventService {
 
   }
 
-  deleteEvent() {
-
+  deleteEvent(id) {
+    return this.http.get("http://localhost:3000/event/remove/" + id);    
   }
 }

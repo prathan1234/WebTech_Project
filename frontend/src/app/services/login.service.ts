@@ -21,12 +21,20 @@ export class LoginService {
     this.isUserLoggedIn = false;
   }
 
+  setUserStatus(status) {
+    this.status = status;
+  }
+
   getUserLoggedIn() {
     return this.isUserLoggedIn;
   }
 
   getUsername() {
     return this.username;
+  }
+
+  getStatus() {
+    return this.status;
   }
 
   login(username, password) {
@@ -37,8 +45,6 @@ export class LoginService {
 
     this.username = username;
 
-    // return this.http.post("http://61.90.233.80:8082/admin/authen", body)
-    //   .map((res) => res.json());
     return this.http.post("http://localhost:3000/login", body)
       .map((res) => res.json());
   }

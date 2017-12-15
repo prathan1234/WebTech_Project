@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthguardGuard } from './authguard.guard';
+import { RoleguardGuard } from './roleguard.guard';
 
 import { LoginService } from './services/login.service';
 import { UserManagementService } from './services/user-management.service';
@@ -19,6 +20,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { EventComponent } from './components/event/event.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const appRoutes:Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
@@ -27,7 +29,8 @@ const appRoutes:Routes = [
   {path: 'profile', canActivate: [AuthguardGuard], component: ProfileComponent, pathMatch: 'full'},
   {path: 'search', component: SearchResultComponent, pathMatch: 'full'},
   {path: 'signup', component: SignupComponent, pathMatch: 'full'},
-  {path: 'event/:id', component: EventComponent, pathMatch: 'full'}
+  {path: 'event/:id', component: EventComponent, pathMatch: 'full'},
+  {path: 'admin', canActivate: [AuthguardGuard], component: AdminComponent, pathMatch: 'full'}
 ]
 
 @NgModule({
@@ -40,7 +43,8 @@ const appRoutes:Routes = [
     ProfileComponent,
     SearchResultComponent,
     SignupComponent,
-    EventComponent
+    EventComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,8 @@ const appRoutes:Routes = [
     LoginService,
     UserManagementService,
     EventService,
-    AuthguardGuard  
+    AuthguardGuard,
+    RoleguardGuard
   ],
   bootstrap: [AppComponent]
 })
