@@ -39,6 +39,11 @@ export class ProfileComponent implements OnInit {
 
   constructor(private loginService: LoginService, private userManagementService: UserManagementService, private eventService: EventService, private router: Router) { }
 
+  ngOnInit() {
+    this.getProfile();
+    this.getUserEvent();
+  }
+
   getProfile() {
     this.userManagementService.getProfile(this.loginService.getUsername()).subscribe((response) => {
       if (response != null) {
@@ -50,16 +55,23 @@ export class ProfileComponent implements OnInit {
         this.phonenumber = response.phonenumber;
         this.email = response.email;
         this.status = response.status;
-      } else {
+      } 
+      else {
         this.result_text = "Not found this user!";
       }
     });
     return false;
   }
 
+  getOneEvent(id) {
+    if (id != null && id != "") {
+      this.eventService.setEventId(id);
+      this.router.navigate(['/event/' + id]);
+    }
+  }
+
   getUserEvent() {
     this.eventService.getUserEvent(this.loginService.getUsername()).subscribe((response) => {
-      console.log(response);
       this.eventList = response;
       if (response != null && this.eventList.length > 0) {
         for (let i = 0; i < this.eventList.length; i++) {
@@ -67,17 +79,12 @@ export class ProfileComponent implements OnInit {
             this.eventList[i].catagory = "None";
           }
         }
-      } 
+      }
       else {
         this.result_text_event = "Not found your event!";
       }
     });
     return false;
-  }
-
-  ngOnInit() {
-    this.getProfile();
-    this.getUserEvent();
   }
 
   editUser(firstname, lastname, phonenumber, email, password) {

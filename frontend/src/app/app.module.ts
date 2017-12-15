@@ -27,7 +27,7 @@ const appRoutes:Routes = [
   {path: 'profile', canActivate: [AuthguardGuard], component: ProfileComponent, pathMatch: 'full'},
   {path: 'search', component: SearchResultComponent, pathMatch: 'full'},
   {path: 'signup', component: SignupComponent, pathMatch: 'full'},
-  {path: 'event', component: EventComponent, pathMatch: 'full'}
+  {path: 'event/:id', component: EventComponent, pathMatch: 'full'}
 ]
 
 @NgModule({

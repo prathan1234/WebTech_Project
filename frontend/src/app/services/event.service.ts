@@ -4,8 +4,17 @@ import 'rxjs/add/operator/map'
 
 @Injectable()
 export class EventService {
+  private eventid;
 
   constructor(private http: Http) { }
+
+  getEventId() {
+    return this.eventid;
+  }
+
+  setEventId(id) {
+    this.eventid = id;
+  }
 
   getAllEvent() {
     return this.http.get("http://localhost:3000/event/all")
