@@ -54,6 +54,7 @@ export class ProfileComponent implements OnInit {
       if (response != null) {
         this.id = response._id;
         this.username = response.username;
+        this.password = response.password;
         this.firstname = response.firstname;
         this.lastname = response.lastname;
         this.phonenumber = response.phonenumber;
@@ -91,11 +92,11 @@ export class ProfileComponent implements OnInit {
     return false;
   }
 
-  editUser(firstname, lastname, phonenumber, email, password) {
-    this.userManagementService.editUser(this.username, firstname, lastname, phonenumber, email, password).subscribe((response) => {
-      if (response.success == "true") {
-        this.router.navigate(['/profile']);
-        console.log("Edit complete!");
+  editUser(firstname, lastname, phonenumber, email) {
+    this.userManagementService.editUser(this.username, firstname, lastname, phonenumber, email).subscribe((response) => {
+      if (response != null) {
+        this.router.navigate(['/']);
+        alert("Edit complete!");
       }
       else {
         this.result_text = "Something Wrong! Please try again.";

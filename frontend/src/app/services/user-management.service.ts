@@ -36,18 +36,16 @@ export class UserManagementService {
     return this.http.get("http://localhost:3000/user/remove/" + username);
   }
 
-  editUser(username, firstname, lastname, phonenumber, email, password) {
+  editUser(username, firstname, lastname, phonenumber, email) {
     let body = {
-      "password": password,
+      "username": username,
       "email": email,
       "phonenumber": phonenumber,
       "firstname": firstname,
       "lastname": lastname
     }
-
-    // return this.http.put("http://61.90.233.80:8082/admin/editadmin/" + username, body)
-    //   .map((res) => res.json());
-    return this.http.put("http://localhost:3000/user/edit/" + username, body)
+    
+    return this.http.post("http://localhost:3000/user/edit/" + username, body)
     .map((res) => res.json());
   }
 

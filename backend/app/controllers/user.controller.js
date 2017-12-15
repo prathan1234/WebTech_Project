@@ -8,7 +8,7 @@ exports.login = (req, res, done) => {
             res.json({ "success": "false" });
         }
         else {
-            res.json({ "success": "true" , "status": user.status});
+            res.json({ "success": "true", "status": user.status });
         }
     });
 }
@@ -32,29 +32,25 @@ exports.create = (req, res, next) => {
     });
 }
 
-// exports.editUser = (req, res, next) => {
-//     User.update({
-//         username: req.params.username
-//     }, 
-//     function (err, user) {
-//         if (err) { return done(err); }
-//         else {
-//             var user = new User(req.body);
-//             user = req.user;
-//             user.save((err) => {
-//                 if (err) { return next(err); }
-//                 else {
-//                     res.json(user);
-//                 }
-//             });
-//         }
-//     });
-// }
+exports.editUser = (req, res, next) => {
+    var userupdate = {};
+    userupdate = Object.assign(userupdate, req.body);
+    delete userupdate._id;
+    User.update({
+        username: req.params.username
+    }, userupdate, 
+        function (err, user) {
+            if (err) { return next(err); }
+            else {
+                res.json(user);
+            }
+        });
+}
 
 exports.removeUser = (req, res, next) => {
-    User.remove({ 
-        username: req.params.username 
-    } ,function (err, user) {
+    User.remove({
+        username: req.params.username
+    }, function (err, user) {
         if (err) {
             console.log('Failure');
             return next(err);
