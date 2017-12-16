@@ -10,9 +10,6 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="">Home</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="../aboutus">About us</a>
-      </li>
       <li class="nav-item" *ngIf="this.loginService.getStatus() == 'admin'">
         <a class="nav-link" routerLink="../admin">Admin Access Control</a>
       </li>
@@ -29,9 +26,6 @@
     <ul class="navbar-nav mr-auto" *ngIf="this.loginService.getUserLoggedIn() == false">
       <li class="nav-item">
         <a class="nav-link" routerLink="">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="../aboutus">About us</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="../signup">Signup</a>

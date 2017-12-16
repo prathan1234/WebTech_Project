@@ -15,7 +15,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
-import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -25,7 +24,6 @@ import { AdminComponent } from './components/admin/admin.component';
 const appRoutes:Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
   {path: 'login', component: LoginComponent, pathMatch: 'full'},
-  {path: 'aboutus', component: AboutusComponent, pathMatch: 'full'},
   {path: 'profile', canActivate: [AuthguardGuard], component: ProfileComponent, pathMatch: 'full'},
   {path: 'search', component: SearchResultComponent, pathMatch: 'full'},
   {path: 'signup', component: SignupComponent, pathMatch: 'full'},
@@ -39,7 +37,6 @@ const appRoutes:Routes = [
     HeaderComponent,
     HomeComponent,
     LoginComponent,
-    AboutusComponent,
     ProfileComponent,
     SearchResultComponent,
     SignupComponent,
