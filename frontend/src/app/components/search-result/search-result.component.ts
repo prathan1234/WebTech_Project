@@ -20,8 +20,8 @@ export class SearchResultComponent implements OnInit {
 
   ngOnInit() {
     this.username = this.loginService.getUsername();
-    // this.getAllEvent();
-    this.search();
+    this.getAllEvent();
+    // this.search();
   }
 
   // Search model

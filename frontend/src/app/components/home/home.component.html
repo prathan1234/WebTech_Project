@@ -2,7 +2,7 @@
   <div class="jumbotron search-field">
     <h1>Welcome</h1>
     <h3>You're in Eventbook.</h3>
-    <form class="form-inline my-2 my-lg-0 login-form">
+    <!-- <form class="form-inline my-2 my-lg-0 login-form">
       <input id="search-box" class="form-control mr-sm-2 search-box" type="text" placeholder="Search" #keyword>
       <div class="form-group">
         <p>Catagory: </p>
@@ -26,8 +26,8 @@
     <br/>
     <div class="search-btn">
       <button class="btn btn-success my-2 my-sm-0" type="submit" (click)="showSearch(keyword.value)">Search</button>
-    </div>
+    </div> -->
   </div>
 
-  <app-search-result *ngIf="isShow"></app-search-result>
+  <app-search-result></app-search-result>
 </div>
