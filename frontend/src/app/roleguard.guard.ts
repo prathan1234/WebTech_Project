@@ -15,11 +15,11 @@ export class RoleguardGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     if (this.loginService.getStatus() != 'admin') {
-      this.router.navigate(['/']);
-      console.log("do not hack admin page !! " + this.loginService.getStatus());
-    } else {
       console.log("passed !! " + this.loginService.getStatus());
       return this.loginService.getStatus();
+    } else {
+      this.router.navigate(['/']);
+      console.log("do not hack admin page !! " + this.loginService.getStatus());
     }
   }
 }
